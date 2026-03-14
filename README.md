@@ -1,20 +1,40 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# BizManager
 
-# Run and deploy your AI Studio app
+Business Management System - Sales, Inventory & Customer Management
 
-This contains everything you need to run your app locally.
+## Tech Stack
 
-View your app in AI Studio: https://ai.studio/apps/8455d61f-e35e-4b58-90ea-56584388c26e
+- **Frontend**: React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui
+- **Backend/DB**: Supabase (PostgreSQL, Auth, Realtime, Edge Functions, Storage)
+- **Mobile**: Capacitor (Android)
+- **Maps**: Leaflet / React Leaflet
 
-## Run Locally
+## Getting Started
 
-**Prerequisites:**  Node.js
+```sh
+# Install dependencies
+npm install
 
+# Start the development server
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Environment Variables
+
+Create a `.env` file with:
+
+```
+VITE_SUPABASE_URL=<your-supabase-url>
+VITE_SUPABASE_PUBLISHABLE_KEY=<your-supabase-anon-key>
+VITE_SUPABASE_PROJECT_ID=<your-supabase-project-id>
+```
+
+## Supabase Edge Functions
+
+Located in `supabase/functions/`:
+
+- `toggle-user-ban` — Ban/unban users (super_admin only)
+- `invite-staff` — Create staff accounts with roles
+- `daily-store-reset` — Reset daily route session states
+- `daily-handover-snapshot` — Create daily balance snapshots
+- `auto-orders` — Auto-generate orders for eligible store types
